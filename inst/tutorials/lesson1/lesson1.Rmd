@@ -1,0 +1,109 @@
+---
+title: "First Lesson"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(learnr)
+library(ggplot2)
+```
+
+```{r, include=FALSE}
+source("C:/Users/User/Documents/Tut/R/ehr_module.R")
+```
+
+## Topic 1: Introduction to ehr_module
+
+Welcome to the first topic of our tutorial, where we will dive into the implementation of the ehr_module.R file, which contains functions for analyzing and visualizing Electronic Health Record (EHR) data. This module is a crucial component of our package, designed to provide users with powerful tools for gaining insights from their healthcare datasets.
+
+Let's start by understanding the analyze_ehr_data function. This function is designed to analyze EHR data stored in a CSV file. Here's a breakdown of its usage:
+
+```{r analyze_ehr_data, exercise=TRUE}
+(ehr_data <- analyze_ehr_data("C:/Users/User/Documents/Tut/data/ehr_sample_data.csv"))
+```
+
+
+It takes a file path to a dataset in CSV format as its parameter and performs a series of analyses, including checking for required columns, reading the dataset, displaying the number of observations, and providing summary statistics.
+
+
+The second helper function in this module is visualize_ehr_data. It is dedicated to creating visualizations that help users explore the relationships between age and diseases in their EHR dataset. The preprocessed EHR data is its input.
+It performs checks for required columns, missing values, and the uniqueness of values in the Diagnosis column before generating various plots, including histograms, bar charts, and scatter plots, to visualize the distribution of age and its relationship with gender and diagnosis.
+
+```{r visualize_ehr_data, exercise=TRUE}
+ehr_data <- read.csv("C:/Users/User/Documents/Tut/data/synthetic_ehr_data.csv")
+visualize_ehr_data(ehr_data)
+```
+
+Note that from the boxplot one can notice that for this data, Cance, Diabetes and Hypertension seem to have a normal distribution. However, Arthritis and Heart Diseases are more right-skewed.
+
+## Topic 2
+
+### Exercise with Hint
+
+*Here's an exercise where the chunk is pre-evaluated via the `exercise.eval` option (so the user can see the default output we'd like them to customize). We also add a "hint" to the correct solution via the chunk immediate below labeled `print-limit-hint`.*
+
+Modify the following code to limit the number of rows printed to 5:
+
+```{r print-limit, exercise=TRUE, exercise.eval=TRUE}
+mtcars
+```
+
+```{r print-limit-hint}
+head(mtcars)
+```
+
+### Quiz
+
+*You can include any number of single or multiple choice questions as a quiz. Use the `question` function to define a question and the `quiz` function for grouping multiple questions together.*
+
+Some questions to verify that you understand the purposes of various base and recommended R packages:
+
+```{r quiz}
+quiz(
+  question("Which package contains functions for installing other R packages?",
+    answer("base"),
+    answer("tools"),
+    answer("utils", correct = TRUE),
+    answer("codetools")
+  ),
+  question("Which of the R packages listed below are used to create plots?",
+    answer("lattice", correct = TRUE),
+    answer("tools"),
+    answer("stats"),
+    answer("grid", correct = TRUE)
+  )
+)
+```
+
+## Topic 3
+
+### Exercise with Hint
+
+*Here's an exercise where the chunk is pre-evaluated via the `exercise.eval` option (so the user can see the default output we'd like them to customize). We also add a "hint" to the correct solution via the chunk immediate below labeled `print-limit-hint`.*
+
+Modify the following code to limit the number of rows printed to 5:
+
+### Quiz
+
+*You can include any number of single or multiple choice questions as a quiz. Use the `question` function to define a question and the `quiz` function for grouping multiple questions together.*
+
+Some questions to verify that you understand the purposes of various base and recommended R packages:
+
+```{r 0}
+quiz(
+  question("Which package contains functions for installing other R packages?",
+    answer("base"),
+    answer("tools"),
+    answer("utils", correct = TRUE),
+    answer("codetools")
+  ),
+  question("Which of the R packages listed below are used to create plots?",
+    answer("lattice", correct = TRUE),
+    answer("tools"),
+    answer("stats"),
+    answer("grid", correct = TRUE)
+  )
+)
+```

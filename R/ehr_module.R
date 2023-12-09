@@ -5,7 +5,7 @@
 #' @return a summary staatistics and plots
 #' @export
 #'
-#' @examples analyze_ehr_data("~/data/ehr.csv")
+#' @examples analyze_ehr_data("~/data/ehr_sample_data.csv")
 
 analyze_ehr_data <- function(path) {
   ehr_data <- read.csv(path)

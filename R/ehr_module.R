@@ -8,13 +8,15 @@
 #' @examples analyze_ehr_data("~/data/ehr.csv")
 
 analyze_ehr_data <- function(path) {
-  # Check if the required columns are present in the preprocessed dataset
-  #required_columns <- c("PatientID", "Age", "Gender", "Diagnosis")
-  #missing_columns <- setdiff(required_columns, colnames(ehr_data))
   ehr_data <- read.csv(path)
-  #if (length(missing_columns) > 0) {
-  #  stop(paste("Missing required columns in the preprocessed EHR dataset:", paste(missing_columns, collapse = ", ")))
-  #}
+
+  # Check if the required columns are present in the preprocessed dataset
+  required_columns <- c("PatientID", "Age", "Gender", "Diagnosis")
+  missing_columns <- setdiff(required_columns, colnames(ehr_data))
+
+  if (length(missing_columns) > 0) {
+    stop(paste("Missing required columns in the preprocessed EHR dataset:", paste(missing_columns, collapse = ", ")))
+  }
   paste("We have ", dim(ehr_data)[1], " observations.")
   head(ehr_data)
   # Summary statistics
